@@ -107,7 +107,7 @@ const SearchingPage = () => {
         description=" rescherchez des analyses et astuces sur la platforme veuilleur du web"
       />
       <main className="ContSearching">
-        <NavBar fixedNav={true} />
+        <NavBar />
         <section className="ContFilterAndField">
           <FilterComponent titleFilter="Tags" filterType="#hashtag" />
           <section className="Searching">

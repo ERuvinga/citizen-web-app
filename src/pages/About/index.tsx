@@ -22,7 +22,7 @@ export default function AboutPage() {
         description="Un programme de l'UNICEF pour la lutte contre les fausses informations et les dicours de haine sur internet"
       />
       <section className="">
-        <NavBar fixedNav={false} />
+        <NavBar />
         <Loading hiddenText={false} contenteText={datasOfUser} />
       </section>
     </>
