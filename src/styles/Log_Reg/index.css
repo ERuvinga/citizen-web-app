@@ -1,0 +1,232 @@
+/* containt Style for login and register pages é*/
+.LoginPage,
+.RegisterPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.Illustration {
+  width: 50%;
+  background-color: #00a7da;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.Illustration .logo {
+  width: 190px;
+  height: 50px;
+}
+
+.Illustration .logRegIllustration {
+  width: 300px;
+  height: 300px;
+}
+
+.Illustration .footIllustr {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 95%;
+}
+
+.Illustration .footIllustr .footTitle {
+  font-family: poppinBold;
+  font-size: 1.4em;
+}
+
+.Illustration .footIllustr .footDescr {
+  font-family: poppinMedium;
+  font-size: 0.8em;
+}
+
+.formulaire {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formulaire .ContainerForm {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.formulaire .ContainerForm .TilteForm {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.ContainerForm .TilteForm .PageTitle {
+  margin: 0;
+  font-family: poppinBold;
+  font-size: 1.6em;
+  color: #455a64;
+}
+
+.formulaire .ContainerForm .TilteForm .PageDesc {
+  font-size: 0.95em;
+  color: #64748b;
+}
+
+.formulaire .InputsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pswdForgot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.pswdForgot div {
+  display: flex;
+  padding: 5px 0;
+  gap: 5px;
+  align-items: center;
+}
+
+.pswdForgot .chekbox {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  background-color: #fff;
+
+  width: 22px;
+  height: 21px;
+  border: solid 1px #e2e8f0;
+  box-shadow: 0 0 4px #e2e8f0;
+  border-radius: 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pswdForgot .chekbox::before {
+  content: '';
+  background-color: #00a7da;
+
+  width: 22px;
+  height: 20px;
+  border-radius: 4px;
+  transform: scale(0);
+  transition: all 0.3s;
+}
+
+.pswdForgot .chekbox:checked::before {
+  transform: scale(1);
+}
+
+.pswdForgot .chekbox:hover {
+  cursor: pointer;
+}
+
+.pswdForgot div span {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #455a64;
+  text-align: center;
+}
+
+.pswdForgot a {
+  color: #00a7da;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.containerAuthBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.otherPageLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.otherPageLink span {
+  color: #64748b;
+  font-size: 0.8em;
+}
+
+.otherPageLink a {
+  color: #00a7da;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.logRegNav {
+  display: none;
+}
+
+/*Medias Querrys*/
+
+@media screen and (max-width: 950px) {
+  .Illustration {
+    display: none;
+  }
+
+  .formulaire {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .LoginPage,
+  .RegisterPage {
+    height: 100lvh;
+  }
+  .formulaire .ContainerForm {
+    width: 85%;
+    gap: 18px;
+  }
+
+  .ContainerForm .TilteForm .PageTitle {
+    font-size: 1.3em;
+  }
+
+  .formulaire .ContainerForm .TilteForm .PageDesc {
+    font-size: 0.8em;
+  }
+
+  .pswdForgot div span {
+    font-size: 0.7em;
+  }
+  .formulaire .InputsContainer {
+    gap: 8px;
+  }
+  .pswdForgot a {
+    font-size: 0.7em;
+  }
+  .logRegNav {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .pswdForgot {
+    flex-direction: column;
+  }
+  .containerAuthBtns {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+  .otherPageLink {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

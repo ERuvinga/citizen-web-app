@@ -1,0 +1,185 @@
+/*Style for card*/
+
+.MainContainerCard {
+  width: 100%;
+  gap: 5px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 6px #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.MainContainerCard .TextPub {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 20px;
+}
+
+.MiniCard {
+  display: flex;
+  gap: 5px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #e2e8f0;
+  width: 40%;
+  min-width: 400px;
+  max-width: 650px;
+  margin: 6px 0;
+  border-radius: 8px;
+  padding-bottom: 10px;
+}
+
+.MiniCard .TextPub {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.UserPub {
+  display: flex;
+  gap: 8px;
+}
+
+.UserPub .profilImg {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+.UserPub .DateName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.UserPub .nameUser {
+  padding: 0px;
+  font-family: poppinMedium;
+  color: #00153d;
+}
+
+.UserPub .dateUser {
+  color: #64748b;
+  font-size: 0.9em;
+  padding: 0px;
+}
+
+.pubPicture {
+  width: 100%;
+  height: 150px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.MiniCard .descriptionText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 15px;
+}
+
+.MainContainerCard .descriptionText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.descriptionText .TitleDesc {
+  font-family: poppinBold;
+  font-size: 1.4em;
+  color: #00153d;
+  padding: 0;
+}
+
+.descriptionText .ContentDesc {
+  color: #64748b;
+  font-family: poppinLight;
+  font-weight: lighter;
+  font-size: 1em;
+}
+.descriptionText .containerHastag {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.AnalysDatas {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.AnalysDatas .likesComments .Likes,
+.AnalysDatas .likesComments .comments,
+.AnalysDatas .Share .view,
+.AnalysDatas .Share .SharedBtn {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.AnalysDatas .likesComments,
+.AnalysDatas .Share {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #64748b;
+}
+
+.AnalysDatas .icone {
+  width: 25px;
+}
+
+@media screen and (max-width: 500px) {
+  .MainContainerCard {
+    width: 100%;
+  }
+  .UserPub .profilImg {
+    width: 40px;
+    height: 40px;
+  }
+  .MiniCard {
+    width: 100%;
+    min-width: 100%;
+    max-width: none;
+  }
+
+  .UserPub .nameUser {
+    font-size: 0.9em;
+  }
+
+  .UserPub .dateUser {
+    font-size: 0.8em;
+  }
+
+  .descriptionText {
+    margin-top: 0px;
+  }
+  .descriptionText .TitleDesc {
+    font-size: 1.1em;
+  }
+
+  .descriptionText .ContentDesc {
+    font-size: 0.9em;
+  }
+
+  .AnalysDatas .likesComments,
+  .AnalysDatas .Share {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #64748b;
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 330px) {
+}

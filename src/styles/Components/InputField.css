@@ -1,0 +1,55 @@
+/* styles for input field*/
+
+.FieldsContainer {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: solid 2px #e2e8f0;
+  border-radius: 8px;
+}
+
+.FieldsContainer .formIcone {
+  width: 25px;
+  color: #64748b;
+}
+
+.FieldsContainer .inputField {
+  font-family: poppinRegular;
+  padding: 15px 0;
+  width: 100%;
+  border: none;
+  color: #64748b;
+  font-size: 100%;
+  background-color: transparent;
+}
+
+.FieldsContainer input:focus {
+  outline: none;
+}
+
+/*Media querry*/
+@media screen and (max-width: 500px) {
+  .FieldsContainer .formIcone {
+    width: 20px;
+    color: #64748b;
+  }
+
+  .FieldsContainer {
+    padding: 0 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+  }
+
+  .FieldsContainer .inputField {
+    padding: 10px 0;
+    font-size: 0.8em;
+  }
+  .FieldsContainer .AppleAdjust {
+    font-family: poppinLight;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+}

@@ -1,0 +1,6 @@
+#npm test
+
+echo "linting and formatting ..."
+npx lint-staged
+
+echo "Good Code"

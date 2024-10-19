@@ -1,0 +1,469 @@
+@keyframes autoWriteEffectPageReverse {
+  form {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/*Animations keyframes for Options*/
+@keyframes OptionsAnimeHidden {
+  from {
+    opacity: 1;
+    right: 20px;
+  }
+
+  to {
+    opacity: 0.5;
+    right: -300px;
+  }
+}
+
+@keyframes OptionsAnimeMobileHidden {
+  from {
+    opacity: 1;
+    right: 10px;
+  }
+
+  to {
+    opacity: 0.5;
+    right: -300px;
+  }
+}
+
+@keyframes OptionsAnime {
+  from {
+    opacity: 0.7;
+    right: -300px;
+  }
+
+  to {
+    opacity: 1;
+    right: 20px;
+  }
+}
+
+@keyframes OptionsAnimemobile {
+  from {
+    opacity: 0.7;
+    right: -300px;
+  }
+
+  to {
+    opacity: 1;
+    right: 10px;
+  }
+}
+.imagereversePage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.optionContainer {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 8px #e2e8f0;
+
+  /*position*/
+  position: fixed;
+  bottom: 85px;
+  z-index: 90;
+  border: solid 1px #edf4fd;
+}
+
+.optionContainer .TitleOptions {
+  font-size: 1em;
+  padding: 10px 18px;
+  color: #00153d;
+  border-bottom: solid 1px #e2e8f0;
+  font-family: poppinMedium;
+}
+
+.optionContainer .ListOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 18px;
+}
+
+.optionContainer .ListOptions .Option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 13px;
+  border: solid 1px #edf4fd;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.optionContainer .ListOptions .OptionSelected {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 13px;
+  border: solid 1px #edf4fd;
+  background-color: #00a7da;
+  border-radius: 5px;
+}
+
+.Option .case {
+  width: 17px;
+  height: 17px;
+  border-radius: 2px;
+  border: solid 1px #e2e8f0;
+}
+
+.Option .textOption {
+  font-size: 0.9em;
+  font-family: poppinLight;
+  color: #00153d;
+}
+
+.OptionSelected .case {
+  width: 17px;
+  height: 17px;
+  border-radius: 2px;
+  border: solid 1px #e2e8f0;
+  background-color: #fff;
+}
+
+.OptionSelected .textOption {
+  font-size: 0.9em;
+  font-family: poppinRegular;
+  color: #fff;
+}
+
+.imagereversePage .TitleReversePage {
+  padding-top: 120px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  min-height: 30px;
+  text-align: center;
+  font-family: poppinBold;
+  color: #00153d;
+  font-size: 1.5em;
+  animation: autoWriteEffectPageReverse 5s ease-in-out forwards alternate;
+}
+.BlocInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 85%;
+  max-width: 800px;
+}
+
+.BlocInput .imageLinkField {
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  color: #455a64;
+  font-style: italic;
+  font-family: poppinRegular;
+  border: none;
+}
+
+.BlocInput .InputFieldSearching {
+  width: 90%;
+  height: 50px;
+  padding: 0px 15px;
+  font-size: 0.8em;
+  color: #455a64;
+  font-style: italic;
+  font-family: poppinRegular;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 4px #e2e8f0;
+
+  /*display*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.BlocInput .InputLinkToImg {
+  width: 90%;
+  height: 50px;
+  padding: 0px 15px;
+  font-size: 0.8em;
+  color: #455a64;
+  font-style: italic;
+  font-family: poppinRegular;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 4px #e2e8f0;
+
+  /*display*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.BlocInput .ContainerIcones {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #edf4fd;
+}
+
+.BlocInput .ContainerIcones .icone {
+  width: 20px;
+  height: 20px;
+  color: #64748b;
+}
+
+.BlocInput .imageLinkField:focus {
+  font-style: normal;
+}
+
+.BlocInput .AppleAdjust {
+  font-family: poppinLight;
+  font-size: 16px;
+}
+.BlocInput button {
+  height: 100%;
+  padding: 0 20px;
+  border: none;
+  background-color: #00a7da;
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #edf4fd;
+  transition: all 0.3s ease-in-out;
+}
+
+.BlocInput button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  box-shadow: 0 0 10px #90a8c9;
+}
+
+.BlocInput .icone {
+  width: 30px;
+  height: 30px;
+}
+.imageLinkField:focus {
+  outline: none;
+}
+
+.fileInput {
+  display: none;
+}
+
+.containerImageOfUrl {
+  width: 45%;
+  max-width: 500px;
+  height: 40vw;
+  max-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.containerImageOfUrl .ErrorMsg {
+  width: 98%;
+  height: 98%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #e3f2fd;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerImageOfUrl .ErrorMsg .icone {
+  width: 30px;
+  height: 30px;
+  color: #90a8c9;
+}
+
+.containerImageOfUrl .ErrorMsg span {
+  text-align: center;
+  font-family: poppinLight;
+  color: #64748b;
+  font-size: 0.9em;
+}
+
+.illustrationImageReverse {
+  width: 100%;
+  height: 100%;
+}
+.infoLocation {
+  font-family: poppinMedium;
+  font-size: 1em;
+  color: #455a64;
+  text-align: center;
+}
+
+/*Animation*/
+.DisplayOptions {
+  animation: OptionsAnimemobile 1.2s ease-in-out forwards;
+}
+.noDisplayOptions {
+  animation: OptionsAnimeHidden 0.8s ease-in-out forwards;
+}
+
+/*Option btn*/
+.optionsBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  z-index: 99;
+  right: 20px;
+  border-radius: 50%;
+  background-color: #c11233;
+  animation: BtnFilterMobileAninated 1.5s ease-in-out forwards;
+}
+
+.optionsBtn .icone {
+  padding: 12px;
+  width: 24px;
+  height: 24px;
+  color: #fff;
+}
+
+/*Medias Querries*/
+@media screen and (max-width: 950px) {
+  .containerImageOfUrl {
+    width: 70%;
+    height: 70vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  .infoLocation {
+    margin-top: 15px;
+    font-size: 0.9em;
+  }
+  .imagereversePage {
+    gap: 10px;
+    height: 100svh;
+  }
+
+  .imagereversePage .TitleReversePage {
+    padding-top: 72px;
+    font-size: 1em;
+    animation: autoWriteEffectPageReverse 3s ease-in forwards alternate;
+  }
+  .BlocInput {
+    width: 94%;
+  }
+
+  .BlocInput .InputFieldSearching {
+    font-size: 0.7em;
+    box-shadow: 0 0 10px #e2e8f0;
+  }
+
+  .BlocInput button {
+    padding: 11px 18px;
+    border-radius: 4px;
+    box-shadow: 0 0 6px #edf4fd;
+  }
+  .BlocInput .icone {
+    width: 20px;
+    height: 20px;
+  }
+
+  .containerImageOfUrl {
+    width: 94%;
+    max-height: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .optionsBtn {
+    right: 10px;
+  }
+
+  /*Animation*/
+  .DisplayOptions {
+    animation: OptionsAnimemobile 1.2s ease-in-out forwards;
+  }
+  .noDisplayOptions {
+    animation: OptionsAnimeMobileHidden 0.8s ease-in-out forwards;
+  }
+  .BlocInput .imageLinkField {
+    width: 90%;
+  }
+
+  .optionContainer {
+    width: 70%;
+  }
+  .optionContainer .TitleOptions {
+    font-size: 0.8em;
+    padding: 10px 15px;
+  }
+
+  .optionContainer .ListOptions {
+    gap: 8px;
+    padding: 10px 15px;
+  }
+
+  .optionContainer .ListOptions .Option,
+  .optionContainer .ListOptions .OptionSelected {
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 3px;
+  }
+
+  .Option .case {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+  }
+
+  .Option .textOption {
+    font-size: 0.8em;
+  }
+
+  .OptionSelected .case {
+    width: 14px;
+    height: 14px;
+  }
+
+  .OptionSelected .textOption {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .optionContainer {
+    width: 80%;
+  }
+  .BlocInput .InputFieldSearching {
+    font-size: 0.7em;
+    box-shadow: 0 0 10px #e2e8f0;
+  }
+  .BlocInput .imageLinkField {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .BlocInput .InputFieldSearching {
+    font-size: 0.7em;
+    box-shadow: 0 0 10px #e2e8f0;
+  }
+  .BlocInput .imageLinkField {
+    width: 80px;
+  }
+}
