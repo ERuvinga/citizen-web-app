@@ -5,18 +5,22 @@
 */
 .sendDatasBtn {
   border: none;
-  border-radius: 8px;
+  height: 45px;
   box-shadow: 0 0 8px 0 #e2e8f0;
-
-  padding: 15px 0;
-  font-family: poppinMedium;
+  font-family: poppinBold;
   font-size: 1.1em;
   color: white;
-  background-color: #00277f;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #00277f, #00a7da 75%);
+  background: -webkit-linear-gradient(45deg, #00277f, #00a7da 75%);
+}
+.disbledBtn {
+  opacity: 0.6;
 }
 
 .sendDatasBtn:hover {
   cursor: pointer;
+  opacity: 0.7;
 }
 
 /*
@@ -84,14 +88,15 @@
 .containerBtnToHome .BtnToHome {
   background-color: #fff;
   color: #64748b;
-  padding: 8px 25px;
+  width: 50px;
+  height: 50px;
   margin-bottom: 10px;
 
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 8px #e2e8f0;
-  border-radius: 5px;
+  border-radius: 30px;
 }
 .containerBtnToHome .BtnToHome .Icone {
   width: 20px;
@@ -515,9 +520,7 @@
     background-color: #e2e8f0;
   }
   .sendDatasBtn {
-    padding: 10px 0;
     font-size: 0.9em;
-    border-radius: 5px;
   }
   .FieldContainer .SeachingField {
     width: 100%;
@@ -558,10 +561,6 @@
   .addTagGroup .icone {
     width: 25px;
     height: 25px;
-  }
-
-  .containerBtnToHome {
-    display: none;
   }
 }
 

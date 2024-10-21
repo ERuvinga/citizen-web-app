@@ -1,27 +1,51 @@
 /* styles for input field*/
 
 .FieldsContainer {
-  padding: 0 10px;
   display: flex;
-  align-items: center;
-  gap: 15px;
-  border: solid 2px #e2e8f0;
-  border-radius: 8px;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.FieldsContainer .formIcone {
-  width: 25px;
+.FieldsContainer .InputLabel {
+  font-family: poppinRegular;
   color: #64748b;
+  font-size: 0.85em;
+}
+
+.FieldsContainer .inputContainer {
+  padding: 0 8px;
+  height: 45px;
+  background-color: transparent;
+  border: solid 2px #b6b5bc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
 }
 
 .FieldsContainer .inputField {
   font-family: poppinRegular;
-  padding: 15px 0;
-  width: 100%;
-  border: none;
   color: #64748b;
   font-size: 100%;
-  background-color: transparent;
+  width: 50%;
+  border: none;
+}
+.FieldsContainer .EyesIcone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FieldsContainer .ErrorMsg {
+  font-size: 0.7em;
+  color: #cc0000;
+  font-family: poppinRegular;
+}
+
+.FieldsContainer .AppleAdjust {
+  font-family: poppinLight;
+  font-size: 16px;
 }
 
 .FieldsContainer input:focus {
@@ -30,24 +54,9 @@
 
 /*Media querry*/
 @media screen and (max-width: 500px) {
-  .FieldsContainer .formIcone {
-    width: 20px;
-    color: #64748b;
-  }
-
-  .FieldsContainer {
-    padding: 0 10px;
-    border: 1px solid #e2e8f0;
-    border-radius: 5px;
-  }
-
   .FieldsContainer .inputField {
-    padding: 10px 0;
     font-size: 0.8em;
-  }
-  .FieldsContainer .AppleAdjust {
-    font-family: poppinLight;
-    font-size: 16px;
+    width: 80%;
   }
 }
 

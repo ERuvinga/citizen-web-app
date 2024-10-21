@@ -61,7 +61,9 @@ a {
 .border {
   border: solid black 1px;
 }
-
+.borderRed {
+  border: solid red 1px;
+}
 /*import */
 @import '@/styles/Home/index.css';
 @import '@/styles/Log_Reg/index.css';
