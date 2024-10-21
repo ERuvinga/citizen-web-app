@@ -1,19 +1,25 @@
 import { useEffect } from 'react';
-import HeadDatas from '../../Components/Header';
 
 // atoms
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { dataUser } from '@/state/user';
-import Loading from '@/Components/Loading';
-import NavBar from '@/Components/NavBar';
 import { itemSelected } from '@/state/NavDatas';
+import { DatasOfUserLogin } from '@/state/SignInUpDatas';
 
-export default function AboutPage() {
+//components
+import Loading from '@/Components/Loading';
+import HeadDatas from '@/Components/Header';
+import NavBar from '@/Components/NavBar';
+
+const EmailVerify = () => {
   const datasOfUser = useRecoilValue(dataUser);
   const setItemSelected = useSetRecoilState(itemSelected);
+  const userDatasLogin = useRecoilValue(DatasOfUserLogin);
 
   useEffect(() => {
-    setItemSelected(3);
+    console.log('Verify email page');
+    console.log(userDatasLogin);
+    setItemSelected(4);
   }, []);
   return (
     <>
@@ -27,4 +33,6 @@ export default function AboutPage() {
       </section>
     </>
   );
-}
+};
+
+export default EmailVerify;

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import HeadDatas from '../Components/Header';
+import HeadDatas from '@/Components/Header';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 // Components
@@ -13,7 +13,7 @@ import ToolCard from '@/Components/ToolsCard';
 import { cardActionsData } from '@/state/HomeDatas';
 import { itemSelected } from '@/state/NavDatas';
 
-export default function Home() {
+const AuthHome = () => {
   //states
   const Actions = useRecoilValue(cardActionsData);
   const setItemSelectedValue = useSetRecoilState(itemSelected);
@@ -130,4 +130,6 @@ export default function Home() {
       </footer>
     </>
   );
-}
+};
+
+export default AuthHome;

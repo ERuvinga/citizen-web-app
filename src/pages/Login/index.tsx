@@ -1,113 +1,232 @@
-import ButtonForm from '@/Components/BtnForm';
-import AuthBtn from '@/Components/GoogleFaceBkAOuthBtn';
-import HeadDatas from '@/Components/Header';
-import InputField from '@/Components/InputField';
-import LineComponent from '@/Components/Line';
 import Image from 'next/image';
 import Link from 'next/link';
-
-// import image
-import LoadingImage from '../../../public/favicon.png';
-import BackHomeBtn from '@/Components/BackHome';
-import NavBar from '@/Components/NavBar';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { useSetRecoilState } from 'recoil';
-import { itemSelected } from '@/state/NavDatas';
 
-// variables
-const fieldDatas = [
-  {
-    data: 'email',
-  },
-  {
-    data: 'password',
-  },
-];
+//states and Recoil functions
+import { useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
+import {
+  DatasOfUserLogin,
+  errorLogRegisterForm,
+  LoginDataStore,
+  MsgServerState,
+} from '@/state/SignInUpDatas';
+import { API } from '@/state/Api';
+
+//Customs Hooks
+import useToken from '@/hooks/useToken';
+import useLocalStorage from '@/hooks/UselocalDatas';
+import { useMutate } from '@/hooks/useFetch';
+
+// components
+import BackHomeBtn from '@/Components/BackHome';
+import ButtonForm from '@/Components/BtnForm';
+import HeadDatas from '@/Components/Header';
+import InputField from '@/Components/InputField';
+import ToastComponent from '@/Components/Toast';
+
+//Constants
+import { LoginTabFieldDatas } from '@/Constants/TabListDatas';
+import { MessageServerType, UserData } from '@/Constants/Type';
 
 const Login = () => {
   // states
-  const setItemSelected = useSetRecoilState(itemSelected);
+  const LoginDatasValue = useRecoilValue(LoginDataStore);
+  const setLoginUserDatas = useSetRecoilState(DatasOfUserLogin);
+  const Api = useRecoilValue(API);
+
+  //eslint-disable-next-line react-hooks/rules-of-hooks
+  const Storage = window ? useLocalStorage(window.localStorage) : null;
+  //eslint-disable-next-line react-hooks/rules-of-hooks
+  const MyToken = window ? useToken(window.localStorage) : null;
+
+  //States Errors Servers
+  const SetServerMessageDisplay = useSetRecoilState(MsgServerState);
+
+  //Reset States
+  const SetResetLogDatas = useResetRecoilState(LoginDataStore);
+  const SetResetErrosField = useResetRecoilState(errorLogRegisterForm);
+  const SetResetMsgOfServerStates = useResetRecoilState(MsgServerState);
+
+  //Input Field Errors States
+  const LoginErrors = useRecoilValue(errorLogRegisterForm);
+
+  //hooks To fetching datas
+  const useFetchingMutation = useMutate();
+  const navigation = useRouter();
+
+  //HANDLES, manage response after request to Api
+  const ResetAllState = () => {
+    // Resets All States
+    SetResetLogDatas();
+    SetResetErrosField();
+    SetResetMsgOfServerStates();
+  };
 
   useEffect(() => {
-    setItemSelected(10);
+    ResetAllState();
+    if (Storage && MyToken) {
+      console.log(Storage.getAllDatas());
+      console.log(MyToken.LogInState());
+    }
   }, []);
+
+  //Handles manager Login datas
+  const Login = (NewToken: string) => {
+    // update token
+    if (MyToken) {
+      MyToken.LogIn(NewToken); // save in Secure store a new User token
+    }
+
+    //Go To Authentification Home
+    navigation.push('/Auth/Home');
+    console.log('Login User');
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleFecthingError = (ErrorDatas: any) => {
+    //Error Global State Chaged to True
+    SetServerMessageDisplay({
+      // Display Message Of Server
+      hidden: false,
+      message: ErrorDatas.response.data.message,
+      messageType: MessageServerType.ERROR,
+    });
+    console.log(ErrorDatas.response.data);
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleFecthingSuccess = (successDatas: any) => {
+    const OwnerUser: UserData = successDatas.user;
+    SetServerMessageDisplay({
+      // Display Message Of Server
+      hidden: false,
+      message: successDatas.message,
+      messageType: MessageServerType.SUCCESS,
+    });
+
+    // Reset States in App
+    console.log(successDatas);
+    ResetAllState();
+
+    if (
+      !OwnerUser.Province ||
+      !OwnerUser.Sexe ||
+      !OwnerUser.Telephone ||
+      !OwnerUser.birthYear ||
+      !OwnerUser.AccountType ||
+      !OwnerUser.imageProfile ||
+      !OwnerUser.status
+    ) {
+      console.log('New User datas');
+      setLoginUserDatas({
+        token: successDatas.token,
+        name: `${OwnerUser.firstName} ${OwnerUser.lastName}`,
+        image: OwnerUser.imageProfile ? OwnerUser.imageProfile : '',
+        email: OwnerUser.email,
+      });
+
+      navigation.push('/UpdateUserDatas');
+    } else {
+      console.log('available remote datas');
+      if (Storage) {
+        console.log('Storage datas in Local...');
+        Storage.setAllDatas({
+          email: OwnerUser.email,
+          fName: OwnerUser.firstName,
+          lName: OwnerUser.lastName,
+          Province: OwnerUser.Province,
+          City: OwnerUser.Ville,
+          Gender: OwnerUser.Sexe,
+          Phone: OwnerUser.Telephone,
+          Status: OwnerUser.status,
+          ImageProfile: OwnerUser.imageProfile,
+          DocumentAuthority: OwnerUser.document ? OwnerUser.document : ' ',
+          BirthYear: OwnerUser.birthYear,
+          AccountType: OwnerUser.AccountType,
+          idUser: OwnerUser._id,
+        });
+      } else {
+        console.log('localStorage no defined');
+      }
+
+      Login(successDatas.token);
+    }
+  };
+
+  // // send Data function
+  const SingInClick = () => {
+    console.log(LoginDatasValue);
+
+    //sending Datas
+    useFetchingMutation.mutate({
+      //Login
+      methode: 'POST',
+      ApiLink: `${Api.LINK}`,
+      EndPoint: `${Api.SIGN_IN}`,
+      dataToSending: LoginDatasValue,
+      handleError: handleFecthingError,
+      handleSuccess: handleFecthingSuccess,
+    });
+  };
 
   return (
     <>
       <HeadDatas
         title="Login"
-        description="Connectez-vous pour plus d'interactivité sur la platforme"
+        description="Connectez-vous Et rejoignez une Communauté d'echange "
       />
-      <div className="logRegNav">
-        <NavBar />
-      </div>
+      <ToastComponent />
       <main className="LoginPage">
-        <section className="Illustration">
-          <Image
-            className="logo"
-            src={LoadingImage}
-            alt="veuilleurduWebLogo"
-            width={0}
-            height={0}
-            quality={100}
-            placeholder="blur"
-          />
-          <Image
-            src={'/illustrations/LoginIllustration.svg'}
-            width={0}
-            height={0}
-            className="logRegIllustration"
-            alt="Illustration Login and Register pages"
-            placeholder="blur"
-            blurDataURL="/Shimer.svg"
-          />
-          <div className="footIllustr">
-            <span className="footTitle">Connectez-vous à votre Compte</span>
-            <span className="footDescr">
-              Et réjoignez une équipe des jeunes, luttant contre les fausses
-              informations sur le web
-            </span>
-          </div>
-        </section>
         <section className="formulaire">
           <div className="ContainerForm">
             <BackHomeBtn />
             <div className="TilteForm">
-              <h1 className="PageTitle">Connexion au compte</h1>
-              <span className="PageDesc">
-                Saisissez vos donnees de connexion
-              </span>
+              <Image
+                width={160}
+                height={60}
+                alt="logo"
+                src={'/logo.png'}
+                placeholder="blur"
+                blurDataURL="/Wshimer.svg"
+                className="logo"
+              />
+              <h1 className="PageTitle">Bienvenu-Karibu</h1>
             </div>
             <div className="InputsContainer">
               <>
-                {fieldDatas.map((value, index) => (
+                {LoginTabFieldDatas.map((value, index) => (
                   <InputField
-                    placehold={value.data}
-                    label={value.data}
-                    fromPage="Login"
-                    type={value.data}
-                    key={`${index}_${value.data}`}
+                    placehold={value.placeholder}
+                    label={value.label}
+                    fromPage={value.from}
+                    type={value.type}
+                    key={`${index}_${value.id}`}
                     idField={index}
+                    secure={value.secure}
+                    checked={value.checked}
+                    ErrorType={value.errorType}
                   />
                 ))}
               </>
-              <div className="pswdForgot">
-                <div>
-                  <input className="chekbox" type="checkbox" name="remember" />
-                  <span>se souvenir de moi</span>
-                </div>
-                <Link href={'#'}>Mot de passe oublié ?</Link>
+            </div>
+            <ButtonForm
+              label="Connexion"
+              OnPressAction={SingInClick}
+              disabled={
+                LoginErrors.LoginInvalidEmail ||
+                LoginDatasValue.email == '' ||
+                LoginDatasValue.password == ''
+              }
+            />
+            <div className="OtherLinks">
+              <Link className="pswdForgot" href={'/VerifyEmail'}>
+                Mot de passe oublié ?
+              </Link>
+              <div className="otherPageLink">
+                <span>Nouveau dans la communauté ?</span>
+                <Link href={'/Register'}>Créer un compte</Link>
               </div>
-            </div>
-            <ButtonForm label="Connexion" Origin="Login" />
-            <LineComponent TextLine="Ou connectez" />
-            <div className="containerAuthBtns">
-              <AuthBtn nameofBtn="Google" origin="Login" />
-              <AuthBtn nameofBtn="Facebook" origin="Login" />
-            </div>
-            <div className="otherPageLink">
-              <span>vous n`avez pas de compte ?</span>
-              <Link href={'/Register'}>Créer</Link>
             </div>
           </div>
         </section>

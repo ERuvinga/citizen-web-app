@@ -1,5 +1,6 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
+import ReactQueryProvider from '@/utils/ReactQueryProvider';
 
 //Recoil
 import { RecoilRoot } from 'recoil';
@@ -7,7 +8,9 @@ import { RecoilRoot } from 'recoil';
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
-      <Component {...pageProps} />
+      <ReactQueryProvider>
+        <Component {...pageProps} />
+      </ReactQueryProvider>
     </RecoilRoot>
   );
 }
