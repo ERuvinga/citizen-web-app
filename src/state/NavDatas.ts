@@ -16,14 +16,17 @@ export const NavBarDatas = atom({
     {
       label: 'Accueil',
       link: '/',
+      isAnchor: false,
     },
     {
       label: 'Explorer',
       link: '/FactCheck',
+      isAnchor: false,
     },
     {
       label: 'A propos',
-      link: '/About',
+      link: '#About',
+      isAnchor: true,
     },
   ],
 });

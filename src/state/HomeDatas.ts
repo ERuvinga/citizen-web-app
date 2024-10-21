@@ -7,7 +7,7 @@
 import { atom } from 'recoil';
 
 //Types
-import { IconeTypes as Icone } from '@/Constants';
+import { IconeTypes as Icone } from '@/Constants/Type';
 
 const cardActionsData = atom({
   key: 'cardActionsData',
