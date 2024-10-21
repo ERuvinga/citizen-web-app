@@ -1,11 +1,16 @@
 interface datasBtn {
   label: string;
-  Origin: string;
+  OnPressAction: () => void;
+  disabled: boolean;
 }
 
 const ButtonForm = (datas: datasBtn) => {
   return (
-    <button className="sendDatasBtn" onClick={() => {}}>
+    <button
+      className={datas.disabled ? 'sendDatasBtn disbledBtn' : 'sendDatasBtn'}
+      onClick={datas.OnPressAction}
+      disabled={datas.disabled}
+    >
       {datas.label}
     </button>
   );

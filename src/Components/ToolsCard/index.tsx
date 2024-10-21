@@ -6,7 +6,7 @@ import {
 } from '@heroicons/react/24/solid';
 
 //Types
-import { IconeTypes as Icone } from '@/Constants';
+import { IconeTypes as Icone } from '@/Constants/Type';
 
 interface datasInCard {
   NameTool: string;
