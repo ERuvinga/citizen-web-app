@@ -9,7 +9,11 @@ const ButtonForm = (datas: datasBtn) => {
   return (
     <div className="ContainerBtnLoader">
       <button
-        className={datas.disabled || datas.loading ? 'sendDatasBtn disbledBtn' : 'sendDatasBtn'}
+        className={
+          datas.disabled || datas.loading
+            ? 'sendDatasBtn disbledBtn'
+            : 'sendDatasBtn'
+        }
         onClick={datas.OnPressAction}
         disabled={datas.disabled || datas.loading}
       >

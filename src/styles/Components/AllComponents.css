@@ -1,11 +1,11 @@
 /* style for All components */
 @keyframes loadingAnim {
   from {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   to {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 /*
@@ -34,19 +34,19 @@
   background: -webkit-linear-gradient(45deg, #00277f, #00a7da 75%);
 }
 
-.sendDatasLoading{
+.sendDatasLoading {
   width: 0;
   height: 0;
   padding: 8px;
   border: 2px #455a64 solid;
   border-bottom-color: transparent;
-    border-radius: 20px;
-    animation: loadingAnim .8s linear infinite;}
+  border-radius: 20px;
+  animation: loadingAnim 0.8s linear infinite;
+}
 
 .disbledBtn {
   opacity: 0.6;
 }
-
 
 .sendDatasBtn:hover {
   cursor: pointer;
