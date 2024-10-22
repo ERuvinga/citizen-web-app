@@ -98,6 +98,7 @@
   box-shadow: 0 0 8px #e2e8f0;
   border-radius: 30px;
 }
+
 .containerBtnToHome .BtnToHome .Icone {
   width: 20px;
   color: #64748b;
@@ -492,6 +493,13 @@
     background-color: white;
     box-shadow: 0 0 10px #64748b;
     transform: scale(1.01);
+  }
+  .containerBtnToHome .BtnToHome:hover {
+    cursor: pointer;
+    background-color: rgba(0, 39, 127, 0.2);
+  }
+  .containerBtnToHome .BtnToHome .Icone:hover {
+    color: #00277f;
   }
 }
 
