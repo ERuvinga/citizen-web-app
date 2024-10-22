@@ -1,6 +1,7 @@
 // Next datas
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 //Customs Hooks
 import { useMutate } from '@/hooks/useFetch';
@@ -49,6 +50,7 @@ const RegisterPage = () => {
 
   //hooks To fetching datas
   const useFetchingMutation = useMutate();
+  const navigation = useRouter();
 
   //handle manage response after request to Api
   const ResetAllState = () => {
@@ -79,7 +81,7 @@ const RegisterPage = () => {
       email: RegisterDatas.email,
     });
     FromScreen('SignUp');
-    //navigation.push("/Auth/otp");
+    navigation.push('/OtpVerify');
   };
 
   // send Data function
@@ -155,6 +157,7 @@ const RegisterPage = () => {
                 RegisterDatas.password == '' ||
                 RegisterDatas.confirmPassword == ''
               }
+              loading={useFetchingMutation.isLoading}
             />
             <div className="OtherLinks">
               <div className="otherPageLink">
