@@ -1,7 +1,7 @@
-import ButtonForm from '@/Components/BtnForm';
+//import ButtonForm from '@/Components/BtnForm';
 import AuthBtn from '@/Components/GoogleFaceBkAOuthBtn';
 import HeadDatas from '@/Components/Header';
-import InputField from '@/Components/InputField';
+//import InputField from '@/Components/InputField';
 import LineComponent from '@/Components/Line';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,19 +13,6 @@ import NavBar from '@/Components/NavBar';
 import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { itemSelected } from '@/state/NavDatas';
-
-// variables
-const fieldDatas = [
-  {
-    data: 'email',
-  },
-  {
-    data: 'name',
-  },
-  {
-    data: 'password',
-  },
-];
 
 const RegisterPage = () => {
   // states
@@ -82,7 +69,7 @@ const RegisterPage = () => {
               <span className="PageDesc">Saisissez les donnees demandées</span>
             </div>
             <div className="InputsContainer">
-              {fieldDatas.map((value, index) => (
+              {/* {fieldDatas.map((value, index) => (
                 <InputField
                   placehold={value.data}
                   label={value.data}
@@ -91,9 +78,9 @@ const RegisterPage = () => {
                   key={`${index}_${value.data}`}
                   idField={index}
                 />
-              ))}
+              ))} */}
             </div>
-            <ButtonForm label="Suivant" Origin="Register" />
+            {/* <ButtonForm label="Suivant"/> */}
             <LineComponent TextLine="Ou créer avec" />
             <div className="containerAuthBtns">
               <AuthBtn nameofBtn="Google" origin="Register" />
