@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { InformationCircleIcon } from '@heroicons/react/24/solid';
 
 //Atoms and Recoil
 import { MsgServerState } from '@/state/SignInUpDatas';
@@ -37,7 +36,6 @@ const ToastComponent = () => {
                 : `${styles.Toast} ${styles.FailedMessage}`
             }
           >
-            <InformationCircleIcon color="#ebf1ff" width={25} height={25} />
             <span className={styles.Message}>{MessageServerState.message}</span>
           </div>
         </div>
