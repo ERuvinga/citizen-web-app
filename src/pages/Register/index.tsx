@@ -116,8 +116,8 @@ const RegisterPage = () => {
             <BackHomeBtn />
             <div className="TilteForm">
               <Image
-                width={160}
-                height={60}
+                width={170}
+                height={55}
                 alt="logo"
                 src={'/logo.png'}
                 placeholder="blur"

@@ -88,7 +88,7 @@ const EmailVerify = () => {
     ResetForgotStates(); // Reset Errors Field
     // switch otp to forgotFetching
     FromScreen('Forgot');
-    navigation.push('/OtpVerify');
+    navigation.replace('/OtpVerify');
   };
 
   //hooks To fetching datas
