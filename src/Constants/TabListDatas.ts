@@ -2,6 +2,7 @@ import {
   ValidatesDatasErrors,
   SettingsIcons,
   ProfileNavigation,
+  NavBarIcons,
 } from '@/Constants/Type';
 
 // Tab values For Application
@@ -158,6 +159,35 @@ export const ProfileItems = [
     label: 'Déconnexion',
     isRoute: false,
     route: ProfileNavigation.NONE,
+  },
+];
+
+//Auth Datas
+export const MenuTab = [
+  {
+    label: 'Accueil',
+    isRoute: true,
+    icone: NavBarIcons.Home,
+    route: '/Auth/Home',
+  },
+
+  {
+    label: 'Recherche',
+    isRoute: true,
+    icone: NavBarIcons.Search,
+    route: '/Auth/Search',
+  },
+  {
+    label: 'Notifications',
+    isRoute: true,
+    icone: NavBarIcons.Notif,
+    route: '/Auth/Notification',
+  },
+  {
+    label: 'Profile',
+    isRoute: false,
+    icone: NavBarIcons.Profil,
+    route: '/Auth/Profile',
   },
 ];
 

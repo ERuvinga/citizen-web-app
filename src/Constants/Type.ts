@@ -126,9 +126,12 @@ export interface LocalUserData {
 
 // TYPE FOR PROFILES lINK SCREENS
 export const ProfileNavigation = {
+  HOME: 'HOME',
+  SEARCH: 'SEARCH',
+  NOTIFICATIONS: 'NOTIFICATIONS',
+  PROFIL: 'PROFIL',
+
   ACCOUNT: 'ACCOUNT',
-  PAYEMENT: 'PAYEMENT',
-  ORDERS: 'ORDERS',
   SETTINGS: 'SETTINGS',
   HELP: 'HELP',
   SPACE_FORUM: 'SPACE_FORUM',
@@ -150,6 +153,13 @@ export enum SettingsIcons {
   Help = 'help',
   Privacy = 'Privacy',
   none = 'none',
+}
+
+export enum NavBarIcons {
+  Home = 'Home',
+  Search = 'Search',
+  Notif = 'Notif',
+  Profil = 'Profil',
 }
 
 // ERRORS TYPES
