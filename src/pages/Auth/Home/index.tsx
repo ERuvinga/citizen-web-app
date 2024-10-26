@@ -8,7 +8,7 @@ import AuthNavBar from '@/Components/Auth/AuthNavBar';
 import HomeMenu from '@/Components/Auth/Menu';
 import BtnTypePost from '@/Components/Auth/TypeContentButton';
 import ForumsDisplayResults from '@/Components/Auth/Views/Post';
-import DebatsDisplayResults from '@/Components/Auth/Views/Debates';
+//import DebatsDisplayResults from '@/Components/Auth/Views/Debates';
 
 //Customs Hooks
 import useLocalStorage, { LocalStorage } from '@/hooks/UselocalDatas';
@@ -77,9 +77,9 @@ const AuthHome = () => {
       case FILTERSPOSTS.POSTS: {
         return <ForumsDisplayResults MyToken={MyToken.getToken()} />;
       }
-      case FILTERSPOSTS.DEBATES: {
-        return <DebatsDisplayResults MyToken={MyToken.getToken()} />;
-      }
+      // case FILTERSPOSTS.DEBATES: {
+      //   return <DebatsDisplayResults MyToken={MyToken.getToken()} />;
+      // }
       // case FILTERSPOSTS.POLL: {
       //     return (
       //         <PollDisplaResults
