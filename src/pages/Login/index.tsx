@@ -73,7 +73,7 @@ const Login = () => {
 
     //Local storage datas
     console.log('Login User');
-    console.log(Storage.getAllDatas());
+    console.log(NewToken);
     console.log(MyToken.getToken());
     //Go To Authentification Home
     navigation.push('/Auth/Home');

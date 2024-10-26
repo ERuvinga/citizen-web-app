@@ -28,7 +28,7 @@ import {
   ResultsOfSearching,
   DataFilteredByTagsAndDay,
 } from '@/state/SearchingDatas';
-import CardOfPub from '@/Components/CardSearchResulta';
+import CardOfPub from '@/Components/Auth/Cards/ForumCard';
 import MobileFilters from '@/Components/MobileFilters';
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
 import { LinksToApi } from '@/state/HomeDatas';
