@@ -28,7 +28,6 @@ import {
   ResultsOfSearching,
   DataFilteredByTagsAndDay,
 } from '@/state/SearchingDatas';
-import CardOfPub from '@/Components/Auth/Cards/ForumCard';
 import MobileFilters from '@/Components/MobileFilters';
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
 import { LinksToApi } from '@/state/HomeDatas';
@@ -117,20 +116,7 @@ const SearchingPage = () => {
                 {!LoadingState && FilterResults ? (
                   <div className="AllResults">
                     {FilterResults.length > 0 ? (
-                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                      FilterResults.map((value: any) => (
-                        <CardOfPub
-                          key={value._id}
-                          HeaderPub={value.HeaderPub}
-                          titlePub={value.titlePub}
-                          dates={value.datePub}
-                          likes={value.likes}
-                          view={value.view}
-                          tags={value.tags}
-                          userPublish={value.userPublish}
-                          comments={value.comments}
-                        />
-                      ))
+                      <></>
                     ) : (
                       <div className=" IllustrationSerch">
                         <Image
