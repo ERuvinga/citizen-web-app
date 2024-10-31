@@ -3,8 +3,8 @@ import { LocalUserData, STORAGEKEYS } from '@/Constants/Type';
 // create class to get and set value secure KeyStore
 export class LocalStorage {
   private secureStore;
-  constructor(localStorage: Storage) {
-    this.secureStore = localStorage;
+  constructor() {
+    this.secureStore = window.localStorage;
   }
   //private Methode
   public setAllDatas = (datas: {
@@ -111,8 +111,8 @@ export class LocalStorage {
   };
 }
 
-const useLocalStorage = (localStorage: Storage) => {
-  return new LocalStorage(localStorage);
+const useLocalStorage = () => {
+  return new LocalStorage();
 };
 
 export default useLocalStorage;

@@ -27,8 +27,9 @@
 .FieldsContainer .inputField {
   font-family: poppinRegular;
   color: #64748b;
+  background-color: transparent;
   font-size: 100%;
-  width: 50%;
+  width: 100%;
   border: none;
 }
 .FieldsContainer .EyesIcone {

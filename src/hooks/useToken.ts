@@ -6,9 +6,9 @@ export class Token {
   private secureStore;
 
   // initiale Class Attributs
-  constructor(name: string, localStorage: Storage) {
+  constructor(name: string) {
     this.keyStoreName = name;
-    this.secureStore = localStorage;
+    this.secureStore = window.localStorage;
   }
 
   //private Methode
@@ -52,8 +52,8 @@ export class Token {
   };
 }
 
-const useToken = (localStorage: Storage) => {
-  return new Token('TokenUser', localStorage);
+const useToken = () => {
+  return new Token('TokenUser');
 };
 
 export default useToken;

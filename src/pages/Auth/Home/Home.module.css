@@ -1,0 +1,14 @@
+/*Style for OTP Component*/
+
+.Container {
+  width: 100%;
+  height: 100lvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+/*Medias Querries*/
+@media screen and (max-width: 450px) {
+}

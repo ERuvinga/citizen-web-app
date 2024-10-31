@@ -1,12 +1,13 @@
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const BackHomeBtn = () => {
+  const navigation = useRouter();
   return (
-    <div className="containerBtnToHome">
-      <Link href={'/'} className="BtnToHome">
+    <div className="containerBtnToHome" onClick={() => navigation.back()}>
+      <div className="BtnToHome">
         <ArrowLeftIcon className="Icone" />
-      </Link>
+      </div>
     </div>
   );
 };
