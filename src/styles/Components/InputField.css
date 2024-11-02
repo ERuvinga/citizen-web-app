@@ -32,6 +32,17 @@
   width: 100%;
   border: none;
 }
+
+.FieldsContainer .AppleAdjust {
+  font-family: poppinRegular;
+  color: #64748b;
+  background-color: transparent;
+  font-size: 100%;
+  width: 100%;
+  border: none;
+  font-family: poppinLight;
+}
+
 .FieldsContainer .EyesIcone {
   display: flex;
   justify-content: center;
@@ -42,11 +53,6 @@
   font-size: 0.7em;
   color: #cc0000;
   font-family: poppinRegular;
-}
-
-.FieldsContainer .AppleAdjust {
-  font-family: poppinLight;
-  font-size: 16px;
 }
 
 .FieldsContainer input:focus {

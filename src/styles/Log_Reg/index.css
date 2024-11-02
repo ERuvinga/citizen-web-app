@@ -1,12 +1,13 @@
 /* containt Style for login and register pages é*/
+
 .LoginPage,
 .RegisterPage,
 .VerifyEmailPage,
 .SuccessPage {
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .formulaire {
@@ -15,13 +16,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 50px;
+  padding-bottom: 30px;
 }
 
 .formulaire .ContainerForm {
   width: 90%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 50px;
 }
 
 .formulaire .ContainerForm .TilteForm {
@@ -29,7 +32,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 25px;
 }
 
 .formulaire .ContainerForm .TextTilteForm {
@@ -137,10 +140,6 @@
 }
 
 @media screen and (max-width: 500px) {
-  .LoginPage,
-  .RegisterPage {
-    height: 100lvh;
-  }
   .formulaire .ContainerForm {
     width: 85%;
     gap: 18px;

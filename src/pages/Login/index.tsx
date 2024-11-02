@@ -169,6 +169,7 @@ const Login = () => {
         title="Citizen Voice Lab, Connectez- vous"
         description="Connectez-vous Et rejoignez une Communauté d'echange "
       />
+
       <ToastComponent />
       <main className="LoginPage">
         <section className="formulaire">
@@ -176,13 +177,12 @@ const Login = () => {
             <BackHomeBtn />
             <div className="TilteForm">
               <Image
-                width={170}
-                height={55}
+                width={150}
+                height={50}
                 alt="logo"
                 src={'/logo.png'}
                 placeholder="blur"
                 blurDataURL="/Wshimer.svg"
-                className="logo"
               />
               <h1 className="PageTitle">Bienvenu-Karibu</h1>
             </div>
