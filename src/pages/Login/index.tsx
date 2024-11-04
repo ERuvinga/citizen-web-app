@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 //states and Recoil functions
 import { useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
 import {
-  // DatasOfUserLogin,
+  DatasOfUserLogin,
   errorLogRegisterForm,
   LoginDataStore,
   MsgServerState,
@@ -25,14 +25,14 @@ import HeadDatas from '@/Components/Header';
 import InputField from '@/Components/InputField';
 import ToastComponent from '@/Components/Toast';
 
-//Constants
+//Constants and Types
 import { LoginTabFieldDatas } from '@/Constants/TabListDatas';
-import { MessageServerType } from '@/Constants/Type';
+import { MessageServerType, UserData } from '@/Constants/Type';
 
 const Login = () => {
   // states
   const LoginDatasValue = useRecoilValue(LoginDataStore);
-  //const setLoginUserDatas = useSetRecoilState(DatasOfUserLogin);
+  const setLoginUserDatas = useSetRecoilState(DatasOfUserLogin);
   const Api = useRecoilValue(API);
   const [Storage, setStorage] = useState({} as LocalStorage);
   const [MyToken, setMyToken] = useState({} as Token);
@@ -71,13 +71,12 @@ const Login = () => {
     // update token
     MyToken.LogIn(NewToken); // save in Secure store a new User token
 
-    //Go To Authentification Home
-    navigation.push('/Auth/Home');
-    console.log('Login User');
-
     //Local storage datas
+    console.log('Login User');
     console.log(Storage.getAllDatas());
     console.log(MyToken.getToken());
+    //Go To Authentification Home
+    navigation.push('/Auth/Home');
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -94,7 +93,7 @@ const Login = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleFecthingSuccess = (successDatas: any) => {
-    // const OwnerUser: UserData = successDatas.user;
+    const OwnerUser: UserData = successDatas.user;
     SetServerMessageDisplay({
       // Display Message Of Server
       hidden: false,
@@ -105,46 +104,44 @@ const Login = () => {
     // Reset States in App
     console.log(successDatas);
     ResetAllState();
-    Login(successDatas.token); // to deleting whene adding Upadted datas user
+    if (
+      !OwnerUser.Province ||
+      !OwnerUser.Sexe ||
+      !OwnerUser.Telephone ||
+      !OwnerUser.birthYear ||
+      !OwnerUser.AccountType ||
+      !OwnerUser.imageProfile ||
+      !OwnerUser.status
+    ) {
+      console.log('New User datas');
+      setLoginUserDatas({
+        token: successDatas.token,
+        name: `${OwnerUser.firstName} ${OwnerUser.lastName}`,
+        image: OwnerUser.imageProfile ? OwnerUser.imageProfile : '',
+        email: OwnerUser.email,
+      });
 
-    // if (
-    //   !OwnerUser.Province ||
-    //   !OwnerUser.Sexe ||
-    //   !OwnerUser.Telephone ||
-    //   !OwnerUser.birthYear ||
-    //   !OwnerUser.AccountType ||
-    //   !OwnerUser.imageProfile ||
-    //   !OwnerUser.status
-    // ) {
-    //   console.log('New User datas');
-    //   setLoginUserDatas({
-    //     token: successDatas.token,
-    //     name: `${OwnerUser.firstName} ${OwnerUser.lastName}`,
-    //     image: OwnerUser.imageProfile ? OwnerUser.imageProfile : '',
-    //     email: OwnerUser.email,
-    //   });
-
-    //   navigation.push('/UpdateUserDatas');
-    // } else {
-    //   console.log('available remote datas');
-    //     console.log('Storage datas in Local...');
-    //     Storage.setAllDatas({
-    //       email: OwnerUser.email,
-    //       fName: OwnerUser.firstName,
-    //       lName: OwnerUser.lastName,
-    //       Province: OwnerUser.Province,
-    //       City: OwnerUser.Ville,
-    //       Gender: OwnerUser.Sexe,
-    //       Phone: OwnerUser.Telephone,
-    //       Status: OwnerUser.status,
-    //       ImageProfile: OwnerUser.imageProfile,
-    //       DocumentAuthority: OwnerUser.document ? OwnerUser.document : ' ',
-    //       BirthYear: OwnerUser.birthYear,
-    //       AccountType: OwnerUser.AccountType,
-    //       idUser: OwnerUser._id,
-    //     });
-    //   Login(successDatas.token);
-    // }
+      navigation.push('/UpdateUserDatas');
+    } else {
+      console.log('available remote datas');
+      console.log('Storage datas in Local...');
+      Storage.setAllDatas({
+        email: OwnerUser.email,
+        fName: OwnerUser.firstName,
+        lName: OwnerUser.lastName,
+        Province: OwnerUser.Province,
+        City: OwnerUser.Ville,
+        Gender: OwnerUser.Sexe,
+        Phone: OwnerUser.Telephone,
+        Status: OwnerUser.status,
+        ImageProfile: OwnerUser.imageProfile,
+        DocumentAuthority: OwnerUser.document ? OwnerUser.document : ' ',
+        BirthYear: OwnerUser.birthYear,
+        AccountType: OwnerUser.AccountType,
+        idUser: OwnerUser._id,
+      });
+      Login(successDatas.token);
+    }
   };
 
   //send Data function
@@ -166,7 +163,7 @@ const Login = () => {
   return (
     <>
       <HeadDatas
-        title="Citizen Voice Lab, Connectez- vous"
+        title="Citizen Voice Lab, Connectez-vous"
         description="Connectez-vous Et rejoignez une Communauté d'echange "
       />
 

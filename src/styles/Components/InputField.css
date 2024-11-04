@@ -1,5 +1,10 @@
 /* styles for input field*/
 
+/* File Input fields*/
+.fileInput {
+  display: none;
+}
+
 .FieldsContainer {
   display: flex;
   flex-direction: column;
@@ -22,6 +27,19 @@
   align-items: center;
   justify-content: space-between;
   gap: 5px;
+}
+
+.FieldsContainer select {
+  width: 100%;
+  font-family: poppinRegular;
+  color: #64748b;
+  background-color: transparent;
+  font-size: 100%;
+  border: none;
+}
+
+.FieldsContainer select:focus {
+  outline: none;
 }
 
 .FieldsContainer .inputField {
@@ -64,6 +82,9 @@
   .FieldsContainer .inputField {
     font-size: 0.8em;
     width: 80%;
+  }
+  .FieldsContainer select {
+    font-size: 0.8em;
   }
 }
 

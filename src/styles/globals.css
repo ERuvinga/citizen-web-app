@@ -74,7 +74,6 @@ a {
 @import '@/styles/Components/CardSearching.css';
 @import '@/styles/Components/AllComponents.css';
 @import '@/styles/Components/MobileNav.css';
-@import '@/styles/image_reverse/index.css';
 
 .AppleAdjust {
   font-family: poppinLight;
