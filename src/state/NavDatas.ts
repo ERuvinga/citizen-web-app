@@ -20,7 +20,7 @@ export const NavBarDatas = atom({
     },
     {
       label: 'Explorer',
-      link: '/FactCheck',
+      link: '#About',
       isAnchor: false,
     },
     {

@@ -112,17 +112,16 @@ const RegisterPage = () => {
       <ToastComponent />
       <main className="RegisterPage">
         <section className="formulaire">
-          <div className="ContainerForm">
+          <div className="ContainerForm ">
             <BackHomeBtn />
             <div className="TilteForm">
               <Image
-                width={170}
-                height={55}
+                width={150}
+                height={50}
                 alt="logo"
                 src={'/logo.png'}
                 placeholder="blur"
                 blurDataURL="/Wshimer.svg"
-                className="logo"
               />
               <h1 className="PageTitle">Création de compte</h1>
             </div>
