@@ -386,9 +386,7 @@ const InputField = (datas: inputDatasDefinition) => {
         <input
           id={datas.label}
           className={
-            platformInfos.match(/iPhone/)
-              ? 'AppleAdjust inputField '
-              : 'inputField'
+            !platformInfos.match(/iPhone/) ? 'AppleAdjust' : 'inputField'
           }
           placeholder={datas.placehold}
           type={datas.secure && !secureState ? 'text' : datas.type}
