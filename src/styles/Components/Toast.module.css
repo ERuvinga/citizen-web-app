@@ -4,12 +4,13 @@
     top: -40px;
   }
   to {
-    top: 20px;
+    top: 30px;
   }
 }
 
-.Container {
+.ContainerToast {
   position: absolute;
+  top: -40px;
   width: 100%;
   margin: auto;
   display: flex;

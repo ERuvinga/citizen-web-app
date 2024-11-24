@@ -36,7 +36,7 @@ const ActionsCard = (datas: datasInCard) => {
   return (
     <div className="ToolCard">
       <div className="pictureContainer">{SelectIcone(datas.Icone)}</div>
-      <div className="MoreTool ">
+      <div className="MoreTool">
         <span className="ToolName">{datas.NameTool}</span>
         <span className="ToolDescription">{datas.DescriptionTool}</span>
       </div>

@@ -28,7 +28,7 @@ const ToastComponent = () => {
   return (
     <>
       {!MessageServerState.hidden && (
-        <div className={styles.Container}>
+        <div className={styles.ContainerToast}>
           <div
             className={
               MessageServerState.messageType == MessageServerType.SUCCESS

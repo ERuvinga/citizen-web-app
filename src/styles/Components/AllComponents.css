@@ -469,7 +469,7 @@
 
 .ToolCard .ToolDescription {
   overflow-y: hidden;
-  height: 80px;
+  height: 100px;
   font-family: poppinLight;
   font-size: 0.9em;
   color: #64748b;

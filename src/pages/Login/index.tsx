@@ -170,8 +170,8 @@ const Login = () => {
         description="Connectez-vous Et rejoignez une Communauté d'echange "
       />
 
+      <ToastComponent />
       <main className="LoginPage">
-        <ToastComponent />
         <section className="formulaire">
           <div className="ContainerForm">
             <BackHomeBtn />
