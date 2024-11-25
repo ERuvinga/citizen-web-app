@@ -48,8 +48,8 @@ export default function Home() {
               participation civique innovante à travers le numérique
             </span>
             <div className="Links">
-              <Link href={'/Register'} className="RegisterLink">
-                NOUS REJOINDRE
+              <Link href={'/Login'} className="RegisterLink">
+                COMMENCER
               </Link>
             </div>
           </div>
